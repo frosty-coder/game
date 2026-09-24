@@ -10,6 +10,8 @@ width = game_width + console_width
 circle_pos_x = 400
 circle_pos_y = 300
 speed = 5
+score = 0
+score_rate = 0.2
 
 
 class Platform:
@@ -230,14 +232,14 @@ class Game(arcade.Window):
         arcade.draw_lbwh_rectangle_filled(
             0,
             0,
-            width,
+            game_width,
             height,
             arcade.color.BLACK
         )
 
         arcade.draw_text(
             "GAME PAUSED",
-            300,
+            (game_width - console_width)/ 2,
             450,
             arcade.color.WHITE,
             30
@@ -274,6 +276,8 @@ class Game(arcade.Window):
             arcade.color.WHITE,
             18
         )
+    def scores():
+        None
 
     def console(self):
         arcade.draw_lbwh_rectangle_filled(
@@ -328,6 +332,7 @@ class Game(arcade.Window):
         self.clear()
 
         if self.paused:
+            self.console()
             self.pause_screen()
             return
 
